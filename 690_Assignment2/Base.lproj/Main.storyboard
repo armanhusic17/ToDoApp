@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7fp-Jc-4YB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--To Do List:-->
+        <scene sceneID="9aC-ax-wuI">
+            <objects>
+                <tableViewController id="tNO-nY-QHc" customClass="TableViewController" customModule="_90_Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nPg-7o-XT7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" textLabel="WPJ-KL-rTC" style="IBUITableViewCellStyleDefault" id="9s6-NO-qYU">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9s6-NO-qYU" id="KN0-yS-5HE">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WPJ-KL-rTC">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="23"/>
+                                            <color key="textColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tNO-nY-QHc" id="OdS-ff-6eD"/>
+                            <outlet property="delegate" destination="tNO-nY-QHc" id="Zsu-5h-WaA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="To Do List:" id="eqk-r4-egh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vNJ-nk-321">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="wpQ-AP-FXM" kind="presentation" identifier="showAddToDo" id="cE2-5O-cQf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYi-kn-YS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831.20000000000005" y="91.304347826086968"/>
+        </scene>
+        <!--Add To Do View Controller-->
+        <scene sceneID="YcT-Wk-jdN">
+            <objects>
+                <viewController id="wpQ-AP-FXM" customClass="AddToDoViewController" customModule="_90_Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qmx-dO-aO2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eM9-XJ-eWs">
+                                <rect key="frame" x="16" y="20" width="343" height="267"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's To Do List: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xo8-Za-CJK">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="jxK-1E-Pjd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" text="1st To Do..." translatesAutoresizingMaskIntoConstraints="NO" id="Ic2-gH-gFd">
+                                        <rect key="frame" x="0.0" y="25" width="343" height="242"/>
+                                        <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wpQ-AP-FXM" id="OW6-QQ-QF0"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
+                                <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Vbc-qc-NsQ">
+                                <rect key="frame" x="16" y="601" width="343" height="66"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pLb-DX-aop">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                        <segments>
+                                            <segment title="!"/>
+                                            <segment title="!!"/>
+                                            <segment title="!!!"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WEv-fQ-BKy">
+                                        <rect key="frame" x="0.0" y="31" width="343" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqo-3t-MMl">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="35"/>
+                                                <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="kdN-M1-FF9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancel:" destination="wpQ-AP-FXM" eventType="touchUpInside" id="EoF-y4-Etu"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="245" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8Q-T7-NVU">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="35"/>
+                                                <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="done:" destination="wpQ-AP-FXM" eventType="touchUpInside" id="rPb-cb-Rdv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XJi-1V-gtH" firstAttribute="trailing" secondItem="eM9-XJ-eWs" secondAttribute="trailing" constant="16" id="3oE-Xg-VgL"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Vbc-qc-NsQ" secondAttribute="bottom" id="4L2-e5-wmZ"/>
+                            <constraint firstItem="eM9-XJ-eWs" firstAttribute="leading" secondItem="XJi-1V-gtH" secondAttribute="leading" constant="16" id="8zp-0Y-mic"/>
+                            <constraint firstItem="Vbc-qc-NsQ" firstAttribute="leading" secondItem="XJi-1V-gtH" secondAttribute="leading" constant="16" id="9TY-I6-OgW"/>
+                            <constraint firstItem="XJi-1V-gtH" firstAttribute="trailing" secondItem="Vbc-qc-NsQ" secondAttribute="trailing" constant="16" id="RbN-9f-atT"/>
+                            <constraint firstItem="eM9-XJ-eWs" firstAttribute="top" secondItem="XJi-1V-gtH" secondAttribute="top" id="abD-ff-ZXy"/>
+                            <constraint firstItem="eM9-XJ-eWs" firstAttribute="height" secondItem="qmx-dO-aO2" secondAttribute="height" multiplier="0.4" id="fuq-ao-0Ck"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XJi-1V-gtH"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="4L2-e5-wmZ" id="0J1-f1-3HN"/>
+                        <outlet property="doneButton" destination="M8Q-T7-NVU" id="S1f-vr-QyC"/>
+                        <outlet property="segmentedControl" destination="pLb-DX-aop" id="C59-hL-bUQ"/>
+                        <outlet property="textView" destination="Ic2-gH-gFd" id="InF-kG-0Sa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XT8-Ex-qE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608.8" y="86.806596701649184"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="u5J-tN-wvf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7fp-Jc-4YB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gN7-HS-fW1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="24"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tNO-nY-QHc" kind="relationship" relationship="rootViewController" id="DQ3-a4-6zx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8u2-5v-9CD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-108" y="91.304347826086968"/>
+        </scene>
+    </scenes>
+</document>
