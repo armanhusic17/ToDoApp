@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class AddToDoViewController: UIViewController   {
+    
+    
+    //adding properties
+    var managedContext: NSManagedObjectContext!
     
     
     
@@ -56,8 +61,25 @@ class AddToDoViewController: UIViewController   {
     
     
     @IBAction func done(_ sender: UIButton) {
-        dismiss(animated: true)
-
+        guard let title = textView.text, !title.isEmpty else {
+            //print("Error cant save empty todo...\(error)")
+            return
+        }
+        
+        let todo = Todo(context: managedContext)
+        
+        todo.title = title
+        todo.priority = Int16(segmentedControl.selectedSegmentIndex)
+        todo.date = Date()
+        
+        do {
+            try managedContext.save()
+            dismiss(animated: true)
+            textView.resignFirstResponder()
+        } catch{
+            print("Error Saving todo : \(error)")
+        }
+        
     }
     
     
