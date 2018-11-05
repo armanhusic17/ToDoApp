@@ -4,7 +4,7 @@
 //
 //  Created by Arman Husic on 10/23/18.
 //  Copyright © 2018 Arman Husic. All rights reserved.
-//
+//  Source: Tutorial by Gary Tokman
 
 import UIKit
 import CoreData
@@ -14,6 +14,7 @@ class AddToDoViewController: UIViewController   {
     
     //adding properties
     var managedContext: NSManagedObjectContext!
+    var todo: Todo?
     
     
     
@@ -26,19 +27,29 @@ class AddToDoViewController: UIViewController   {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-          textView.becomeFirstResponder()
+        textView.becomeFirstResponder()
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(with:)),
             name: UIResponder.keyboardWillShowNotification,
             object: nil)
         
-      
+        
+        if let todo = todo {
+            textView.text = todo.title
+            textView.text = todo.title
+            segmentedControl.selectedSegmentIndex = Int(todo.priority)
+
+        }
+        
+        
+        
         
     }
     
     
     @objc func keyboardWillShow(with notification: Notification) {
+        
         let key = "UIKeyboardFrameEndUserInfoKey"
         guard let keyboardFrame = notification.userInfo?[key] as? NSValue else {return}
         
@@ -61,31 +72,43 @@ class AddToDoViewController: UIViewController   {
     
     
     @IBAction func done(_ sender: UIButton) {
+        
         guard let title = textView.text, !title.isEmpty else {
+            
             //print("Error cant save empty todo...\(error)")
             return
+            
         }
         
-        let todo = Todo(context: managedContext)
+        if let todo = self.todo {
+            
+            //update title and priority if we have a todo
+            todo.title = title
+            todo.priority = Int16(segmentedControl.selectedSegmentIndex)
+            
+        } else {
+            
+            // otherwise create one
+            let todo = Todo(context: managedContext)
+            
+            todo.title = title
+            todo.priority = Int16(segmentedControl.selectedSegmentIndex)
+            todo.date = Date()
         
-        todo.title = title
-        todo.priority = Int16(segmentedControl.selectedSegmentIndex)
-        todo.date = Date()
+        }
         
         do {
             try managedContext.save()
             dismiss(animated: true)
             textView.resignFirstResponder()
-        } catch{
+            
+        } catch {
+            
             print("Error Saving todo : \(error)")
         }
         
     }
-    
-    
-    
-    
-    
+
 }
 
 
@@ -94,13 +117,13 @@ extension AddToDoViewController: UITextViewDelegate {
         if doneButton.isHidden {
             textView.text.removeAll()
             textView.textColor = .white
-            
+
             doneButton.isHidden = false
-            
+
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.layoutIfNeeded()
             })
-            
+
         }
     }
 }

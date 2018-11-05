@@ -42,7 +42,7 @@
                             <outlet property="delegate" destination="tNO-nY-QHc" id="Zsu-5h-WaA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="To Do List:" id="eqk-r4-egh">
+                    <navigationItem key="navigationItem" title="To Do List:" id="eqk-r4-egh" colorLabel="IBBuiltInLabel-Purple">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vNJ-nk-321">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -53,7 +53,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYi-kn-YS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831.20000000000005" y="91.304347826086968"/>
+            <point key="canvasLocation" x="774" y="91"/>
         </scene>
         <!--Add To Do View Controller-->
         <scene sceneID="YcT-Wk-jdN">
@@ -75,7 +75,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" text="1st To Do..." translatesAutoresizingMaskIntoConstraints="NO" id="Ic2-gH-gFd">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" text="1st To Do...Press Any Key to Clear !!" translatesAutoresizingMaskIntoConstraints="NO" id="Ic2-gH-gFd">
                                         <rect key="frame" x="0.0" y="25" width="343" height="242"/>
                                         <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
@@ -93,9 +93,8 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pLb-DX-aop">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
                                         <segments>
-                                            <segment title="!"/>
-                                            <segment title="!!"/>
-                                            <segment title="!!!"/>
+                                            <segment title="Incomplete"/>
+                                            <segment title="Complete"/>
                                         </segments>
                                         <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </segmentedControl>
@@ -179,6 +178,7 @@
                             <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="24"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="48"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
