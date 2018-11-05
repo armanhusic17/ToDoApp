@@ -5,6 +5,8 @@
 //  Created by Arman Husic on 10/23/18.
 //  Copyright © 2018 Arman Husic. All rights reserved.
 //  Source: Tutorial by Gary Tokman
+//  I followed a tutorial on youtube
+//  credited to Gary Tokman.
 
 import UIKit
 import CoreData

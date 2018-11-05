@@ -135,21 +135,21 @@ class TableViewController: UITableViewController    {
 //    }
     
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let todo = self.resultsController.object(at: indexPath)
-        
-        
-        if todo.priority == 0 {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-            
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-            performSegue(withIdentifier: "showAddToDo", sender: tableView.cellForRow(at: indexPath))
-            
-        }
-   
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        let todo = self.resultsController.object(at: indexPath)
+//
+//
+//        if todo.priority == 0 {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+//
+//        } else {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+//            performSegue(withIdentifier: "showAddToDo", sender: tableView.cellForRow(at: indexPath))
+//
+//        }
+//
+//    }
    
   
     
