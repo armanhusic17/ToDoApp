@@ -2,9 +2,8 @@
 //  AddToDoViewController.swift
 //  690_Assignment2
 //
-//  Created by Arman Husic on 10/23/18.
-//  Copyright © 2018 Arman Husic. All rights reserved.
-//
+//  I followed a tutorial on youtube
+//  credited to Gary Tokman.
 
 import UIKit
 import CoreData
