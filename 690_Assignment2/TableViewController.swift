@@ -4,7 +4,9 @@
 //
 //  Created by Arman Husic on 10/23/18.
 //  Copyright © 2018 Arman Husic. All rights reserved.
-//
+//  Source: Tutorial by Gary Tokman
+//  I followed a tutorial on youtube
+//  credited to Gary Tokman.
 
 import UIKit
 import CoreData
@@ -63,6 +65,11 @@ class TableViewController: UITableViewController    {
         let todo01 = resultsController.object(at: indexPath)
         cell.textLabel?.text = todo01.title
         
+        // Took me a while to realize that if the cell is being saved the issue wasnt to save the checkmark but rather to check if its there...
+        if todo01.priority > 0 {
+              cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+            
+        }
         
         
         return cell
@@ -110,6 +117,7 @@ class TableViewController: UITableViewController    {
             } else if todo.priority == 1 {
                 cell.accessoryType = UITableViewCell.AccessoryType.checkmark
                 tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            
             } else {
                 cell.accessoryType = UITableViewCell.AccessoryType.none
                 tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
@@ -129,27 +137,28 @@ class TableViewController: UITableViewController    {
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
-// 
+//
 //            UserDefaults.standard.set(UITableViewCell.AccessoryType.checkmark, forKey: "ToDoCell99")
-//            
-//    }
-    
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        let todo = self.resultsController.object(at: indexPath)
-//
-//
-//        if todo.priority == 0 {
-//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-//
-//        } else {
-//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-//            performSegue(withIdentifier: "showAddToDo", sender: tableView.cellForRow(at: indexPath))
-//
-//        }
 //
 //    }
+//
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let todo = self.resultsController.object(at: indexPath)
+
+
+        if todo.priority == 0   {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+             performSegue(withIdentifier: "showAddToDo", sender: tableView.cellForRow(at: indexPath))
+
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            performSegue(withIdentifier: "showAddToDo", sender: tableView.cellForRow(at: indexPath))
+
+        }
+
+    }
    
   
     
